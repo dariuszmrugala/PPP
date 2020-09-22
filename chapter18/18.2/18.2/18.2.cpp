@@ -2,10 +2,44 @@
 //
 
 #include <iostream>
+#include "vector.h"
+
+
+void print_vector(darek::vector& vec)
+{
+    for (int counter = 0; counter < vec.get_size(); counter++)
+    {
+        std::cout << vec.get(counter) << ' ';
+    }
+
+    std::cout << '\n';
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    darek::vector v1 = { 1,2,3 };
+    darek::vector v2{ 1,2,3 };
+    darek::vector v3(3);
+
+    darek::vector copy_v1 = v1;
+
+    print_vector(v1);
+    print_vector(copy_v1);
+
+    darek::vector copy_v2{ v2 };
+    print_vector(v2);
+    print_vector(copy_v2);
+
+    darek::vector v4 = { 1.2, 3.4 , 5.6 , 7.8 };
+    copy_v2 = v4;
+    print_vector(v4);
+    print_vector(copy_v2);
+
+    copy_v2 = copy_v2;
+    print_vector(copy_v2);
+
+    darek::vector v5 = { 9.8 , 7.6 };
+    copy_v1 = v5;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
